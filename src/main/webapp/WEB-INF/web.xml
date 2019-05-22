@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
- 
   <servlet>
     <servlet-name>basicServlet</servlet-name>
     <servlet-class>kr.or.ddit.servlet.BasicServlet</servlet-class>
@@ -18,8 +17,7 @@
     <servlet-name>basicServlet</servlet-name>
     <url-pattern>/bs</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>date</servlet-name>
     <servlet-class>kr.or.ddit.servlet.Date</servlet-class>
   </servlet>
@@ -27,10 +25,9 @@
     <servlet-name>date</servlet-name>
     <url-pattern>/nowDate</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  	<servlet-class>kr.or.ddit.servlet.TimeServlet</servlet-class>
-  	<servlet-name>timeServlet</servlet-name>
+    <servlet-name>timeServlet</servlet-name>
+    <servlet-class>kr.or.ddit.servlet.TimeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>timeServlet</servlet-name>
