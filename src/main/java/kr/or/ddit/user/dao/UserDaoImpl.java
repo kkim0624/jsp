@@ -9,19 +9,26 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UserDao implements IUserDao{
+public class UserDaoImpl implements IUserDao{
 	
 	private static final Logger logger = LoggerFactory
-			.getLogger(UserDao.class);
+			.getLogger(UserDaoImpl.class);
 	
 	public static void main(String[] args) {
 		
 		/***Given***/
-		IUserDao userDao = new UserDao();
+		IUserDao userDao = new UserDaoImpl();
 		/***When***/
 		List<UserVo> userList = userDao.userList();
 		/***Then***/
 		logger.debug("userList : {} ",userList);
+		
+		/***Given***/
+		String userId = "brown"; // 아랫줄 brown 빼고 userId 넣어도됨
+		/***When***/
+		UserVo userVo = userDao.getUser(userId);
+		/***Then***/
+		logger.debug("userVo : {} ", userVo);
 		
 	}
 	
@@ -38,6 +45,22 @@ public class UserDao implements IUserDao{
 		SqlSession sqlSession = MyBatisUtil.getSqlSession();
 		List<UserVo> userList = sqlSession.selectList("user.userList");
 		return userList;
+	}
+	
+	/**
+	 * 
+	* Method : getUser
+	* 작성자 : PC04
+	* 변경이력 :
+	* @param userId
+	* @return
+	* Method 설명 : 사용자 정보 조회
+	 */
+	@Override
+	public UserVo getUser(String userId) {
+		SqlSession sqlSession = MyBatisUtil.getSqlSession();
+		UserVo userVo = sqlSession.selectOne("user.getUser", userId);
+		return userVo;
 	}
 
 }

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.IUserService;
-import kr.or.ddit.user.service.UserService;
+import kr.or.ddit.user.service.UserServiceImpl;
 
 /**
  * Servlet implementation class UserController
@@ -25,7 +25,7 @@ public class UserController extends HttpServlet {
 	
 	@Override // override implements init
 	public void init() throws ServletException {
-		userService = new UserService();
+		userService = new UserServiceImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
