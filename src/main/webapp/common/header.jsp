@@ -20,7 +20,7 @@
 					userName = SESSION_USER.getName();
 			%>
 			
-			<%-- <%=((UserVo)session.getAttribute("USER_INFO")).getName()%></a> --%>
+<%-- 			<%=((UserVo)session.getAttribute("USER_INFO")).getName()%></a> --%>
 			<%=userName%></a>
 
 			
