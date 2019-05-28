@@ -6,5 +6,3 @@
 <link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
 
-<!-- css, js -->
-<%@include file="/common/basicLib.jsp" %>
