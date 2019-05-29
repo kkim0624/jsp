@@ -20,7 +20,6 @@ public class Calculator {
 	public int calculate(String text) {
 		
 		if(text == null || text.isEmpty())
-		if(text == null || text.isEmpty())
 			return 0;
 		
 		// custom seperatoe 연산 : //

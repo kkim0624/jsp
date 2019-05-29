@@ -73,7 +73,7 @@
 										<li class="disabled"><span>«</span></li>
 									<%}else{%>
 										<li>
-											<a href="<%=request.getContextPath()%>/userPagingList?page=<%=pageVo.getPage()-1 %>&pageSize=<%=pageVo.getPageSize()%>">«</a>
+											<a href="${pageContext.request.contextPath}">«</a>
 										</li>
 									<%} %>
 									
@@ -89,7 +89,7 @@
 											</li>										
 										<%}else{%>
 											<li>
-												<a href="<%=request.getContextPath()%>/userPagingList?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a>
+												<a href="${pageContext.request.contextPath}"></a>
 											</li>
 										<%} %>
 									<%} %>
@@ -98,7 +98,7 @@
 										<li class="disabled"><span>»</span></li>
 									<%}else{%>
 										<li>
-											<a href="<%=request.getContextPath()%>/userPagingList?page=<%=pageVo.getPage()+1 %>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+											<a href="${pageContext.request.contextPath}">»</a>
 										</li>
 									<%} %>
 							</ul>

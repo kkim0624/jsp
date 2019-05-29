@@ -71,7 +71,7 @@
 										<li class="disabled"><span>«</span></li>
 									<%}else{%>
 										<li>
-											<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=pageVo.getPage()-1 %>&pageSize=<%=pageVo.getPageSize()%>">«</a>
+											<a href="${pageContext.request.contextPath}">«</a>
 										</li>
 									<%} %>
 									
@@ -86,7 +86,7 @@
 											</li>										
 										<%}else{%>
 											<li>
-												<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a>
+												<a href="${pageContext.request.contextPath}"></a>
 											</li>
 										<%} %>
 									<%} %>
@@ -95,7 +95,7 @@
 										<li class="disabled"><span>»</span></li>
 									<%}else{%>
 										<li>
-											<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=pageVo.getPage()+1 %>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+											<a href="${pageContext.request.contextPath}">»</a>
 										</li>
 									<%} %>
 							</ul>
