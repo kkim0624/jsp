@@ -47,6 +47,7 @@
 									<th>등록일시</th>
 								</tr>
 								
+								
 								<!-- 향상된 for -->
 								<c:forEach items="${userPagingList}" var="user" varStatus="status">
 									<tr>
@@ -83,10 +84,11 @@
 											<c:when test="${pageVo.getPage() == i }">
 												<li class="active">
 												<span> ${i}</span>
-												</li>
+												
+												
 											</c:when>
 											<c:otherwise>
-												<li><a href="${pageContext.request.contextPath}/userPagingList?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>
+												<a href="${pageContext.request.contextPath}/userPagingList?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>
 											</c:otherwise>
 										</c:choose>
 									

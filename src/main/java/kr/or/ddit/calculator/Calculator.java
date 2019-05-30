@@ -14,52 +14,50 @@ import java.util.regex.Pattern;
 // 5. 숫자 구분자는 커스텀 구분자와, 기본 구분자 두가지를 섞어 사용할 수 있다.
 // 		"//;\n1,5;10;20;" ==> 36
 public class Calculator {
-	
+
 	private String seperator = ",|:";
-	
+
 	public int calculate(String text) {
-		
-		if(text == null || text.isEmpty())
+
+		if (text == null || text.isEmpty())
 			return 0;
-		
+
 		// custom seperatoe 연산 : //
-		if(text.startsWith("//")){
+		if (text.startsWith("//")) {
 			Matcher m = Pattern.compile("//(.)\n(.*)").matcher(text);
-			if(m.find()){
-				seperator = seperator + "|["+m.group(1)+"]";
+			if (m.find()) {
+				seperator = seperator + "|[" + m.group(1) + "]";
 				text = m.group(2);
-				
-														// numberText.split(",|:|;");
-				
+
+				// numberText.split(",|:|;");
+
 				String[] numberStrings = text.split(seperator);
-				
+
 				int result = 0;
-				for (String numString : numberStrings) 
+				for (String numString : numberStrings)
 					result += Integer.parseInt(numString);
-				
+
 				return result;
 			}
 		}
-		
-		private int calculateSum(String[] numberStrings){
-			int result = 0;
-			for (String numString : numberStrings) 
-				result += Integer.parseInt(numString);
-			
-			return result;
-		}
-		
+
 		// default seperator 연산
 		String[] numberStrings = text.split(seperator);
-		
+
 		int result = 0;
 		for (String numberString : numberStrings) {
 			result += Integer.parseInt(numberString);
 		}
-		
+
 		return result;
 	}
-	
-	
-	
+
+	private int calculateSum(String[] numberStrings) {
+		int result = 0;
+		for (String numString : numberStrings)
+			result += Integer.parseInt(numString);
+
+		return result;
+	}
+
 }
