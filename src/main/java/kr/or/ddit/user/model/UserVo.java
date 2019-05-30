@@ -5,6 +5,11 @@ public class UserVo {
 	private String name;
 	private String userId;
 	private String alias;
+	private String pass;
+	
+	public UserVo() {
+
+	}
 	
 	public UserVo(String name, String userId, String alias) {
 		super();
@@ -13,10 +18,12 @@ public class UserVo {
 		this.alias = alias;
 	}
 
-	public UserVo() {
-
+	@Override
+	public String toString() {
+		return "UserVo [name=" + name + ", userId=" + userId + ", alias="
+				+ alias + "]";
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -35,15 +42,12 @@ public class UserVo {
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
-	
-	@Override
-	public String toString() {
-		return "UserVo [name=" + name + ", userId=" + userId + ", alias="
-				+ alias + "]";
+	public String getPass() {
+		return pass;
 	}
-	
-	
-	
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
 	
 	
 	
