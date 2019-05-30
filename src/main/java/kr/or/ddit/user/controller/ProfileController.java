@@ -1,53 +1,58 @@
 package kr.or.ddit.user.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.IUserService;
 import kr.or.ddit.user.service.UserServiceImpl;
 
 /**
- * Servlet implementation class UserController
+ * Servlet implementation class ProfileController
  */
-@WebServlet("/user")
-public class UserController extends HttpServlet {
+@WebServlet("/profile")
+public class ProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	private IUserService userService;
 	
-	private static final Logger logger = LoggerFactory
-			.getLogger(UserController.class);
-
 	@Override
 	public void init() throws ServletException {
 		userService = new UserServiceImpl();
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		logger.debug("userContoroller doGet");
 		
-		// request객체로부터 사용자 아이디 파라미터 획득
+		// 사용자아이디를 파라미터로부터 확인해서
 		String userId = request.getParameter("userId");
 		
-		// 사용자 아이디로 사용자 정보를 조회
+		// 사용자 정보(path)를 조회
 		UserVo userVo = userService.getUser(userId);
-		logger.debug("userVo : {} ", userVo.getUserId());
 		
-		// 조회 결과를 request객체에 속성으로 저장
-		request.setAttribute("userVo", userVo);
-		// 화면을 담당하는 /user/user.jsp로 forward
-		request.getRequestDispatcher("/user/user.jsp").forward(request, response);
-	}
+		// path정보로 file을 열어서 읽어 들여서
+		ServletOutputStream sos = response.getOutputStream();
+		
+		File file = new File(userVo.getPath());
+		FileInputStream fis = new FileInputStream(file);
 
+		byte[] buffer = new byte[512];
+
+		// response객체에 스트림으로 써준다.
+		while( (fis.read(buffer, 0, 512)) != -1 ){
+			sos.write(buffer);
+		}
+		
+		fis.close();
+		sos.close();
+		
+	}
+	
 }
