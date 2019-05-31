@@ -110,36 +110,44 @@
 										<li class="disabled"><span>«</span></li>
 									</c:when>
 									<c:otherwise>
-										<li><a
-											href="${pageContext.request.contextPath}/userPagingList?page=${pageVo.page-1}&pageSize=${pageVo.pageSize}"><span>«</span></a></li>
+										<li>
+											<a href="${pageContext.request.contextPath}/userPagingList?page=${pageVo.page-1}&pageSize=${pageVo.pageSize}">
+												<span>«</span>
+											</a>
+										</li>
 									</c:otherwise>
 								</c:choose>
 
 								<c:forEach begin="1" end="${paginationSize}" step="1" var="i">
-
 									<c:choose>
 										<c:when test="${pageVo.getPage() == i }">
-											<li class="active"><span> ${i}</span></li>
-
+											<li class="active">
+												<span> ${i}</span>
+											</li>
 										</c:when>
 										<c:otherwise>
-											<li><a
-												href="${pageContext.request.contextPath}/userPagingList?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>
+											<li>
+											<a href="${pageContext.request.contextPath}/userPagingList?page=${i}&pageSize=${pageVo.pageSize}">${i}
+											</a>
+											</li>
 										</c:otherwise>
 									</c:choose>
-
 								</c:forEach>
 
 								<c:choose>
 									<c:when test="${pageVo.getPage()==paginationSize}">
-										<li class="disabled"><span>»</span></li>
+										<li class="disabled">
+											<span>»</span>
+										</li>
 									</c:when>
 									<c:otherwise>
-										<li><a
-											href="${pageContext.request.contextPath}/userPagingList?page=${pageVo.getPage()+1}&pageSize=${pageVo.getPageSize()}"><span>»</span></a></li>
+										<li>
+											<a href="${pageContext.request.contextPath}/userPagingList?page=${pageVo.getPage()+1}&pageSize=${pageVo.getPageSize()}">
+												<span>»</span>
+											</a>
+										</li>
 									</c:otherwise>
 								</c:choose>
-
 							</ul>
 						</div>
 					</div>

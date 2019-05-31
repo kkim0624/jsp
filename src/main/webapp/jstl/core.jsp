@@ -71,6 +71,16 @@
 	<c:forEach begin="1" end="10" step="1" var="i">
 		${i}<br> 
 	</c:forEach>
+	
+	<!-- 향상된 for -->
+	<c:forEach items="${userPagingList}" var="user"
+		varStatus="status">
+		<tr class="userTr" data-userid="${user.userId}">
+			<td class="userId">${status.index}/ ${ status.count } / ${user.userId}</td>
+			<td>${ user.name }</td>
+			<td>${ user.alias }</td>
+		</tr>
+	</c:forEach>
 		
 </body>
 </html>
