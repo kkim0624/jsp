@@ -43,31 +43,11 @@ $(document).ready(function(){
 		}).open();
 	});
 	
-	// 사용자 등록 버튼 클릭 이벤트 핸들러
-	$("#userRegBtn").on("click", function() {
-		// console.log("userRegBtn click");
-		// 유효성 체크 
-		
-		// 여기까지 도달하면 유효성 검사 완료(submit)
-		$("#frm").submit();
+	$("#userModiBtn").on("click", function(){
 		
 	});
 	
-	// 개발용 데이터 초기화 함수 ***** 추후 지울것
-	// dataInit();
-	
 });
-
-function dataInit() {
-	$("#userId").val("userTest");
-	$("#name").val("대덕인");
-	$("#alias").val("중앙로");
-	$("#addr1").val("대전광역시 중구 중앙로76");
-	$("#addr2").val("영민빌딩 2층 204호");
-	$("#zipcd").val("34940");
-	$("#birth").val("2019-05-31");
-	$("#pass").val("userTest1234");
-}
 
 </script>
 
@@ -100,11 +80,7 @@ function dataInit() {
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 								<div class="col-sm-10">
-<!-- 								<input type="text" class="form-control" id="userId" name="userId" -->
-<%-- 								placeholder="사용자 아이디" value="${param.userId}" readonly> --%>
-									
-									<label input type="text" class="form-control" id="userId" name="userId"
-									placeholder="사용자 아이디" value="${param.userId}" readonly></label>
+									<label id="userId" for="userId" class="form-control">${userVo.userId}</label>
 								</div>
 							</div>
 							
@@ -112,7 +88,7 @@ function dataInit() {
 								<label for="userNm" class="col-sm-2 control-label">사용자 비밀번호</label>
 								<div class="col-sm-10">
 									<input type="password" class="form-control" id="pass" name="pass"
-									placeholder="사용자 비밀번호" value="${param.pass}">
+									placeholder="사용자 비밀번호" value="${userVo.pass}">
 								</div>
 							</div>
 
@@ -120,7 +96,7 @@ function dataInit() {
 								<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="name" name="name"
-									placeholder="사용자 이름" value="${param.name}">
+									placeholder="사용자 이름" value="${userVo.name}">
 								</div>
 							</div>
 
@@ -128,7 +104,7 @@ function dataInit() {
 								<label for="userNm" class="col-sm-2 control-label">별명</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="alias" name="alias"
-									placeholder="사용자 별명" value="${param.alias}">
+									placeholder="사용자 별명" value="${userVo.alias}">
 								</div>
 							</div>
 
@@ -136,7 +112,7 @@ function dataInit() {
 								<label for="userNm" class="col-sm-2 control-label">주소</label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" id="addr1" name="addr1"
-									placeholder="사용자 주소" readonly value="${param.addr1}">
+									placeholder="사용자 주소" readonly value="${userVo.addr1}">
 								</div>
 								<div class="col-sm-2">
 									<button type="button" id="addrSearchBtn" class="btn btn-default pull-right">주소 검색</button>
@@ -147,7 +123,7 @@ function dataInit() {
 								<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="addr2" name="addr2"
-									placeholder="사용자 상세주소" value="${param.addr2}">
+									placeholder="사용자 상세주소" value="${userVo.addr2}">
 								</div>
 							</div>
 
@@ -155,7 +131,7 @@ function dataInit() {
 								<label for="userNm" class="col-sm-2 control-label">우편번호</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="zipcd" name="zipcd"
-									placeholder="사용자 우편번호" readonly>
+									placeholder="사용자 우편번호" value="${userVo.zipcd}" readonly>
 								</div>
 							</div>
 
@@ -163,13 +139,14 @@ function dataInit() {
 								<label for="userNm" class="col-sm-2 control-label">생일</label>
 								<div class="col-sm-10">
 									<input type="date" class="form-control" id="birth" name="birth"
-									placeholder="사용자 생일" value="${param.birth}">
+									placeholder="사용자 생일" value="${userVo.birthStr}">
+									
 								</div>
 							</div>
 
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button id="userRegBtn" type="button" class="btn btn-default">사용자 수정</button>
+									<button id="userModiBtn" type="button" class="btn btn-default">사용자 수정</button>
 								</div>
 							</div>
 							

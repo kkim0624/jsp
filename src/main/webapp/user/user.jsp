@@ -99,7 +99,7 @@
 							</div>
 
 							<div class="form-group">
-								<label for="userNm" class="col-sm-2 control-label">상세주소</label>
+								<label for="userNm" class="col-sm-2 control-label">우편번호</label>
 								<div class="col-sm-10">
 									<label class="control-label">${userVo.zipcd}</label>
 								</div>
@@ -110,7 +110,7 @@
 								<div class="col-sm-10">
 <%-- 								<label class="control-label">${userVo.birth}</label> --%>
 <%-- 								<label class="control-label">${userVo.birthStr}</label> --%>
-									<label class="control-label"><fmt:formatDate value="${userVo.birthStr}" pattern="yyyy-MM-dd"/></label>
+									<label class="control-label"><fmt:formatDate value="${userVo.birth}" pattern="yyyy-MM-dd"/></label>
 								</div>
 							</div>
 

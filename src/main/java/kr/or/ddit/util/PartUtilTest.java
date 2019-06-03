@@ -44,7 +44,7 @@ public class PartUtilTest {
 		/***Given***/
 		
 		/***When***/
-		//db2ab9c5-5404-48c0-8a13-8ac6d81e4f6a
+		// db2ab9c5-5404-48c0-8a13-8ac6d81e4f6a
 		logger.debug("UUID.randomUUID().toString() : {}", UUID.randomUUID().toString());
 		
 		/***Then***/
@@ -73,8 +73,8 @@ public class PartUtilTest {
 		String ext3 = PartUtil.getExt(filename3);
 		
 		/***Then***/
-		assertEquals("png", ext);
-		assertEquals("png", ext2);
+		assertEquals(".png", ext);
+		assertEquals(".png", ext2);
 		assertEquals("", ext3);
 	}
 	

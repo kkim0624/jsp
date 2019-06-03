@@ -35,14 +35,14 @@ public class UserMoifyController extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userId = request.getParameter("userId");
+		String userId = request.getParameter("userMo");
+		logger.debug("userMo : {}", userId);
+		UserVo userVo = userService.getUser(userId); // 코드 보고 수정
 		
-		UserVo userVo = new UserVo();
-		
-//		request.setAttribute("userId", userId);
+		request.setAttribute("userVo", userVo); // 코드 보고 수정
 		request.getRequestDispatcher("/user/userModify.jsp").forward(request, response);
 	}
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");

@@ -30,7 +30,6 @@ public class ProfileController extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		// 사용자아이디를 파라미터로부터 확인해서
 		String userId = request.getParameter("userId");
 		
@@ -40,19 +39,29 @@ public class ProfileController extends HttpServlet {
 		// path정보로 file을 열어서 읽어 들여서
 		ServletOutputStream sos = response.getOutputStream();
 		
-		File file = new File(userVo.getPath());
-		FileInputStream fis = new FileInputStream(file);
-
-		byte[] buffer = new byte[512];
-
-		// response객체에 스트림으로 써준다.
-		while( (fis.read(buffer, 0, 512)) != -1 ){
-			sos.write(buffer);
-		}
+		FileInputStream fis = null;
+		String filePath = null; 
 		
+		// 사용자가 업로드한 파일이 존재할 경우
+		if(userVo.getPath() != null){
+			filePath = userVo.getPath();
+		// 사용자가 업로드한 파일이 존재하지 않을 경우 : no_image.gif
+		}else{
+			filePath = getServletContext().getRealPath("/image/no_image.gif");
+			// webapp/img/no_image.gif
+			
+			File file = new File(filePath);
+			fis = new FileInputStream(file);
+			
+			byte[] buffer = new byte[512];
+			
+			// response객체에 스트림으로 써준다.
+			while( (fis.read(buffer, 0, 512)) != -1 ){
+				sos.write(buffer);
+			}
+		}
 		fis.close();
 		sos.close();
-		
 	}
 	
 }
