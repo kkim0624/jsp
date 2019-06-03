@@ -1,6 +1,10 @@
 package kr.or.ddit.user.model;
 
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.eclipse.jdt.internal.compiler.ast.ThisReference;
+
 
 public class UserVo {
 	
@@ -20,8 +24,7 @@ public class UserVo {
 	}
 
 	public UserVo(String name, String userId, String alias, String pass,
-			String addr1, String addr2, String zipcd, Date birth, String path,
-			String filename) {
+			String addr1, String addr2, String zipcd, Date birth) {
 		super();
 		this.name = name;
 		this.userId = userId;
@@ -31,8 +34,6 @@ public class UserVo {
 		this.addr2 = addr2;
 		this.zipcd = zipcd;
 		this.birth = birth;
-		this.path = path;
-		this.filename = filename;
 	}
 
 	@Override
@@ -101,6 +102,11 @@ public class UserVo {
 
 	public Date getBirth() {
 		return birth;
+	}
+	
+	public String getBirthStr() { //// 2019-06-03
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(this.birth);
 	}
 
 	public void setBirth(Date birth) {

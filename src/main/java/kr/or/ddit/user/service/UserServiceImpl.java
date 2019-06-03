@@ -51,5 +51,21 @@ public class UserServiceImpl implements IUserService{
 		
 		return resultMap;
 	}
+
+	@Override
+	public int insertUser(UserVo userVo) {
+		
+		return dao.insertUser(userVo);
+	}
+
+	@Override
+	public int deleteUser(String userId) {
+		return dao.deleteUser(userId);
+	}
+
+	@Override
+	public int updateDataUser(UserVo userVo) {
+		return dao.updateDataUser(userVo);
+	}
 	
 }

@@ -24,7 +24,7 @@
 $(document).ready(function(){
 	
 	var msg = '${msg}';
-	if(msg!= "")
+	if(msg != "")
 		alert(msg);
 	
 	// 주소 찾기 버튼 클릭 이벤트 핸들러
@@ -85,7 +85,7 @@ function dataInit() {
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div class="row">
 					<div class="col-sm-8 blog-main">
-						<h2 class="sub-header">사용자등록</h2>
+						<h2 class="sub-header">사용자수정</h2>
 
 						<form id="frm" class="form-horizontal" role="form" 
 							action="${pageContext.request.contextPath}/userForm" method="post">
@@ -100,8 +100,11 @@ function dataInit() {
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="userId" name="userId"
-									placeholder="사용자 아이디" value="${param.userId}">
+<!-- 								<input type="text" class="form-control" id="userId" name="userId" -->
+<%-- 								placeholder="사용자 아이디" value="${param.userId}" readonly> --%>
+									
+									<label input type="text" class="form-control" id="userId" name="userId"
+									placeholder="사용자 아이디" value="${param.userId}" readonly></label>
 								</div>
 							</div>
 							
@@ -166,7 +169,7 @@ function dataInit() {
 
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button id="userRegBtn" type="button" class="btn btn-default">사용자 등록</button>
+									<button id="userRegBtn" type="button" class="btn btn-default">사용자 수정</button>
 								</div>
 							</div>
 							
