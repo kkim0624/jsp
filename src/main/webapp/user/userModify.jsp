@@ -43,8 +43,14 @@ $(document).ready(function(){
 		}).open();
 	});
 	
-	$("#userModiBtn").on("click", function(){
-		
+	$("#userModiBtn").on("click", function(data){
+		$("#pass").val(data.pass);
+		$("#name").val(data.name);
+		$("#alias").val(data.alias);
+		$("#addr1").val(data.addr1);
+		$("#addr2").val(data.addr2);
+		$("#zipcd").val(data.zipcd);
+		$("#birth").val(data.birth);
 	});
 	
 });
