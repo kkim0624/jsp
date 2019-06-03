@@ -14,7 +14,7 @@ public class NowDateServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		PrintWriter printWriter = resp.getWriter();
-		printWriter.write((new Date()).toString());
+		printWriter.write((new DateServelt()).toString());
 		printWriter.close();
 	}
 
