@@ -21,40 +21,38 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 <script>
-$(document).ready(function(){
-	
-	var msg = '${msg}';
-	if(msg != "")
-		alert(msg);
-	
-	// 주소 찾기 버튼 클릭 이벤트 핸들러
-	$("#addrSearchBtn").on("click", function() {
-		new daum.Postcode({
-			oncomplete : function(data) {
-				// 주소 input value에 설정 data.roadAddress
-				// 우편번호 input value에 설정 data.zonecode	
-				$("#addr1").val(data.roadAddress);
-				$("#zipcd").val(data.zonecode);
-	
-				// console.log(data);
-				// console.log(data.roadAddress);
-				// console.log(data.zonecode);
-			}
-		}).open();
-	});
-	
-	$("#userModiBtn").on("click", function(data){
-		$("#pass").val(data.pass);
-		$("#name").val(data.name);
-		$("#alias").val(data.alias);
-		$("#addr1").val(data.addr1);
-		$("#addr2").val(data.addr2);
-		$("#zipcd").val(data.zipcd);
-		$("#birth").val(data.birth);
-	});
-	
-});
+	$(document).ready(function() {
 
+		var msg = '${msg}';
+		if (msg != "")
+			alert(msg);
+
+		// 주소 찾기 버튼 클릭 이벤트 핸들러
+		$("#addrSearchBtn").on("click", function() {
+			new daum.Postcode({
+				oncomplete : function(data) {
+					// 주소 input value에 설정 data.roadAddress
+					// 우편번호 input value에 설정 data.zonecode	
+					$("#addr1").val(data.roadAddress);
+					$("#zipcd").val(data.zonecode);
+
+					// console.log(data);
+					// console.log(data.roadAddress);
+					// console.log(data.zonecode);
+				}
+			}).open();
+		});
+
+		$("#userModiBtn").on("click", function() {
+
+			var userIdd = $("#userIdd").text();
+			$("#userId").val(userIdd);
+			
+			$("#frm").submit();
+
+		});
+
+	});
 </script>
 
 </head>
@@ -73,36 +71,40 @@ $(document).ready(function(){
 					<div class="col-sm-8 blog-main">
 						<h2 class="sub-header">사용자수정</h2>
 
-						<form id="frm" class="form-horizontal" role="form" 
-							action="${pageContext.request.contextPath}/userForm" method="post">
+						<form id="frm" class="form-horizontal" role="form"
+							action="${pageContext.request.contextPath}/userModify"
+							enctype="multipart/form-data" method="post">
 
 							<div class="form-group">
-								<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
+								<label for="userNm" class="col-sm-2 control-label">사용자사진</label>
 								<div class="col-sm-10">
-									<input type="file" name="filename"/>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
-								<div class="col-sm-10">
-									<label id="userId" for="userId" class="form-control">${userVo.userId}</label>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label for="userNm" class="col-sm-2 control-label">사용자 비밀번호</label>
-								<div class="col-sm-10">
-									<input type="password" class="form-control" id="pass" name="pass"
-									placeholder="사용자 비밀번호" value="${userVo.pass}">
+									<input type="file" name="profile"/>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
+								<label for="userNm" class="col-sm-2 control-label">사용자아이디</label>
+								<div class="col-sm-10">
+									<label id="userIdd" for="userIdd" class="form-control">${userVo.userId}</label>
+									<input type="hidden" id="userId" name="userId">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="userNm" class="col-sm-2 control-label">사용자
+									비밀번호</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="pass"
+										name="pass" placeholder="사용자 비밀번호" value="${userVo.pass}">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="userNm" class="col-sm-2 control-label">사용자
+									이름</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="name" name="name"
-									placeholder="사용자 이름" value="${userVo.name}">
+										placeholder="사용자 이름" value="${userVo.name}">
 								</div>
 							</div>
 
@@ -110,7 +112,7 @@ $(document).ready(function(){
 								<label for="userNm" class="col-sm-2 control-label">별명</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="alias" name="alias"
-									placeholder="사용자 별명" value="${userVo.alias}">
+										placeholder="사용자 별명" value="${userVo.alias}">
 								</div>
 							</div>
 
@@ -118,10 +120,11 @@ $(document).ready(function(){
 								<label for="userNm" class="col-sm-2 control-label">주소</label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" id="addr1" name="addr1"
-									placeholder="사용자 주소" readonly value="${userVo.addr1}">
+										placeholder="사용자 주소" readonly value="${userVo.addr1}">
 								</div>
 								<div class="col-sm-2">
-									<button type="button" id="addrSearchBtn" class="btn btn-default pull-right">주소 검색</button>
+									<button type="button" id="addrSearchBtn"
+										class="btn btn-default pull-right">주소 검색</button>
 								</div>
 							</div>
 
@@ -129,7 +132,7 @@ $(document).ready(function(){
 								<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="addr2" name="addr2"
-									placeholder="사용자 상세주소" value="${userVo.addr2}">
+										placeholder="사용자 상세주소" value="${userVo.addr2}">
 								</div>
 							</div>
 
@@ -137,7 +140,7 @@ $(document).ready(function(){
 								<label for="userNm" class="col-sm-2 control-label">우편번호</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="zipcd" name="zipcd"
-									placeholder="사용자 우편번호" value="${userVo.zipcd}" readonly>
+										placeholder="사용자 우편번호" value="${userVo.zipcd}" readonly>
 								</div>
 							</div>
 
@@ -145,22 +148,22 @@ $(document).ready(function(){
 								<label for="userNm" class="col-sm-2 control-label">생일</label>
 								<div class="col-sm-10">
 									<input type="date" class="form-control" id="birth" name="birth"
-									placeholder="사용자 생일" value="${userVo.birthStr}">
-									
+										placeholder="사용자 생일" value="${userVo.birthStr}">
+
 								</div>
 							</div>
 
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button id="userModiBtn" type="button" class="btn btn-default">사용자 수정</button>
+									<button id="userModiBtn" type="button" class="btn btn-default">사용자수정</button>
 								</div>
 							</div>
-							
+
 							<!-- <input type="text" class="form-control" id="userId" -->
 							<!-- name="userId" placeholder="사용자 아이디"> -->
-							
+
 						</form>
-						
+
 					</div>
 				</div>
 			</div>
