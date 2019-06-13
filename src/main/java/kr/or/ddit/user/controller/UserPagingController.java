@@ -66,7 +66,7 @@ public class UserPagingController extends HttpServlet {
 		List<UserVo> userList = (List<UserVo>)resultMap.get("userList");
 		int paginationSize = (Integer) resultMap.get("paginationSize");
 		
-		// request scope에서 사용자 리스트를 공유할 수 있도록 속성 설정ㄴ
+		// request scope에서 사용자 리스트를 공유할 수 있도록 속성 설정
 		request.setAttribute("userPagingList", userList);
 		request.setAttribute("paginationSize", paginationSize);
 		request.setAttribute("pageVo", pageVo);

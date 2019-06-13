@@ -20,7 +20,7 @@ public class ARIAUtilTest {
 	@Test
 	public void encryptTest() throws InvalidKeyException, UnsupportedEncodingException {
 		/***Given***/
-		String plainText = "brown12R";
+		String plainText = "brown1234";
 		
 		/***When***/
 		// 평문을 암호화 시키고

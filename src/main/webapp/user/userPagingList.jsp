@@ -69,9 +69,7 @@
 						
 						<!-- 사용자 상세조회 : userId가 필요 -->
 						<form id="frm" action="${pageContext.request.contextPath}/user" method="get">
-							
 							<input type="hidden" id="userId" name="userId">
-						
 						</form>
 						
 						<div class="table-responsive">
