@@ -71,7 +71,7 @@
 										<li class="disabled"><span>«</span></li>
 									<%}else{%>
 										<li>
-											<a href="${pageContext.request.contextPath}">«</a>
+											<a href="${cp}">«</a>
 										</li>
 									<%} %>
 									
@@ -86,7 +86,7 @@
 											</li>										
 										<%}else{%>
 											<li>
-												<a href="${pageContext.request.contextPath}"></a>
+												<a href="${cp}"></a>
 											</li>
 										<%} %>
 									<%} %>
@@ -95,7 +95,7 @@
 										<li class="disabled"><span>»</span></li>
 									<%}else{%>
 										<li>
-											<a href="${pageContext.request.contextPath}">»</a>
+											<a href="${cp}">»</a>
 										</li>
 									<%} %>
 							</ul>

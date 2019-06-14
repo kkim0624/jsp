@@ -53,7 +53,7 @@ public class UserFormController extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		logger.debug("UserForm dopost");
-		request.setCharacterEncoding("UTF-8");
+//		request.setCharacterEncoding("UTF-8");
 
 		// 사용자 보낸 파라미터를 사용해서 UserVo 인스턴스를 만들어서
 		String userId = request.getParameter("userId");

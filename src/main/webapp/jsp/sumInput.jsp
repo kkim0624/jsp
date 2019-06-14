@@ -10,7 +10,7 @@
 	
 	<h2> jsp calculation scope</h2>
 	
-	<form action="${pageContext.request.contextPath}/sumCalculation" method="post">
+	<form action="${cp}/sumCalculation" method="post">
 		start <input type="text" name="start" value="startValue"><br>
 		end <input type="text" name="end" value="endValue">
 		<input type="submit" value="입력">

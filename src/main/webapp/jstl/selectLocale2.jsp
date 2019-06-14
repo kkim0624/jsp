@@ -20,7 +20,7 @@ $(document).ready(function(){
 </head>
 <body>
 	
-	<form id="frm" action="${pageContext.request.contextPath}/selectLocale2" method="post">
+	<form id="frm" action="${cp}/selectLocale2" method="post">
 		<select id="locale" name="locale">
 				<option value="ko">한국어</option>
 				<option value="en">english</option>

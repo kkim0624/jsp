@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- 	 틀렸음 ${pageContext.request.contextPath} --%>
+<%-- 	 틀렸음 ${cp} --%>
 
 	<%=session.getAttribute("mulResult")%>
 

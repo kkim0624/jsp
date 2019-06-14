@@ -27,7 +27,7 @@
 		request.getProtocol() : <%= request.getProtocol() %> <br>
 				
 		<img src="/jsp/image/ryan.png">
-		<img src="${pageContext.request.contextPath}/image/sally.png">
+		<img src="${cp}/image/sally.png">
 		<img src="/jsp/image/ryan.png">
 		
 		<%-- 파라미터 받기 --%>
