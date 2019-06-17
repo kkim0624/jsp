@@ -1,4 +1,4 @@
-# JSP
+# JSP :vulcan_salute:
 
 ### 1. 웹 프로그래밍 시작
      
