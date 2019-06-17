@@ -12,3 +12,5 @@
   가. Nested Loop와 Hash Joi의 비교
   
   구분 | Nested loop join | Hash join
+  -----|-----------------|-----------
+  
